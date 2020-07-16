@@ -1,7 +1,7 @@
 {
   "name": "frontendbuildtool",
-  "version": "0.0.1",
-  "description": "项目前端构建工具",
+  "version": "0.0.2",
+  "description": "vue项目前端构建工具",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,7 +23,7 @@
   "sideEffects": [
     "*.css"
   ],
-  "author": "pzl",
+  "author": "jellycheng",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jellycheng/frontendbuildtool/issues"
@@ -34,7 +34,7 @@
   "homepage": "https://github.com/jellycheng/frontendbuildtool#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "7",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
@@ -45,7 +45,7 @@
     "babel-register": "^6.26.0",
     "cache-loader": "^4.1.0",
     "chalk": "^2.4.2",
-    "clean-webpack-plugin": "^3.0.0",
+    "clean-webpack-plugin": "^1.0.1",
     "commander": "^4.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.2.0",

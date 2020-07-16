@@ -6,10 +6,7 @@ function resolve (dir) {
 }
 
 function getPublicPathAndBase (outPublicPath) {
-    let publicPath = '/static', basePath = 'static';
-    try{
-        publicPath = outPublicPath;
-    }catch(e){};
+    let publicPath = outPublicPath, basePath = 'static';
     publicPath.replace(/((?:(?:https|http?:)?\/\/[\w-]+(?:\.[\w-]+)+)?\/?)?(.*)/, function(all, domain, base){
         publicPath = domain || '';
         basePath = base;
@@ -23,7 +20,6 @@ function getPublicPathAndBase (outPublicPath) {
 
 // 显示进度
 const progress = (percentage, message, ...args) => {
-    // e.g. Output each progress message directly to the console:
     console.info(percentage, message, ...args);
 };
 

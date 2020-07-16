@@ -2,17 +2,18 @@ const download = require('download-git-repo');
 const chalk = require('chalk');  
 const ora = require('ora');
 const path = require("path")  
-const fs = require('fs');   //引入node的path模块
+const fs = require('fs');  
 const inquirer = require('inquirer');
 const promptList = require('./promptList.config');
-const pa = process.argv;
+//const pa = process.argv;
 global.config = {};
-// const projectName = pa[pa.length - 1] || 'myproject';
+//工程目录名
 const projectName = global.projectName;
 
+//交互提示ui
 inquirer.prompt(promptList.frameConf).then(answers => {
     global.config.frame = answers.frame;
-    readyDownloadDir(answers.frame);
+    readyDownloadDir(answers.frame);//选择的选项值
 });
 
 // 开始准备下载
@@ -20,9 +21,10 @@ function readyDownloadDir (frame) {
     fs.exists(path.resolve(`./${projectName}`), function(exists) {
         if (exists) {
             inquirer.prompt(promptList.projectCheckConf).then(answers => {
-                if (answers.isProjectCreate) {
+                if (answers.isProjectCreate) {//同意重新下载
                     createProject(frame);
                 } else {
+                    console.log("项目已经存在，未下载")
                     process.exit();
                 }
             });
@@ -32,15 +34,16 @@ function readyDownloadDir (frame) {
     });
 }
 
-// 创建项目
+//下载远程git代码创建项目
 function createProject(frame) {
-    const tempDir = frame === 'vue' ? 'github:pzl1026/vue-temp-pro' : 'github:pzl1026/react-temp-pro';
+    //回头改成对应的模板仓库，现在是假的，todo
+    const tempDir = frame === 'vue' ? 'github:jellycheng/cjsJsLib' : 'github:jellycheng/cjsJsLib';
     const spinner = ora(chalk.yellow('Create start')).start();
 
     spinner.color = 'blue';
     spinner.text = 'Creating project directory...';
 
-    download(tempDir, pa[pa.length - 1], function (err) {
+    download(tempDir, projectName, function (err) {
         if (err) {
             throw err;
             return;

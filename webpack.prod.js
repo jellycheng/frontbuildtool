@@ -15,9 +15,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const conf = require('./bin/conf');
 const helper = require('./helper');
 const CWD = process.cwd();
+//分析静态url地址
 let path2 = helper.getPublicPathAndBase(conf.output.publicPath);
 let publicPath = path2.publicPath,
-  basePath = path2.basePath;
+    basePath = path2.basePath;
 
 delete conf.nomocker;
 

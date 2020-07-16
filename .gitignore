@@ -21,3 +21,4 @@ package-lock.json
 jsconfig.json
 debug.log
 yarn.lock
+cjstest.js
