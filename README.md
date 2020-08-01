@@ -3,14 +3,12 @@
 前端构建脚手架,webpack4，由于项目仅使用了 vue 框架，所以仅对 vue 进行了处理
 
 ### 安装
-
 ```js
 npm i frontendbuildtool -g
 npm i frontendbuildtool -D
 ```
 
-### 目录配置
-
+### 项目目录配置
 ```js
 ├─.babelrc //babel配置
 ├─.eslintrc.js //eslint配置
@@ -117,15 +115,15 @@ module.exports = {
 ### 使用方式
 
 ```js
-// 创建基本项目
-frontendbuildtool -p [文件名]
+// 创建项目
+frontendbuildtool -p [工程目录名]
 
-// 开发环境
-frontendbuildtool -d [conf/env文件夹js文件名] :[运行文件名下的指定的domain]
-frontendbuildtool -d dev :test1  //即执行的是conf/env/dev.js下的test1代理
+// 开发环境，启动本地web服务
+frontendbuildtool -d [conf/env文件夹/js文件名] 
+frontendbuildtool -d dev  //即执行的是conf/env/dev.js
 
-// 生产环境
-frontendbuildtool -b [conf/env文件夹js文件名]
+// 打包
+frontendbuildtool -b [conf/env文件夹/js文件名]
 frontendbuildtool -b production //即执行的是conf/env/production.js
 frontendbuildtool -b production -a //开启分析
 ```

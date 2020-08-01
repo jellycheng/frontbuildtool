@@ -4,7 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const helper = require('./helper');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-console.log(77)
+
 module.exports = {
     entry: {
         vendor: ['lodash'],
