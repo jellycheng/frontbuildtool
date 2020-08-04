@@ -1,15 +1,16 @@
 const path = require("path");
 const CWD = process.cwd();
 
-function resolve (dir) {
-    return path.join(process.cwd(), dir || '');
+function resolve(dir) {
+    return path.join(CWD, dir || '');
 }
 
-function getPublicPathAndBase (outPublicPath) {
+//把地址分隔成域名和目录
+function getPublicPathAndBase(outPublicPath) {
     let publicPath = outPublicPath, basePath = 'static';
     publicPath.replace(/((?:(?:https|http?:)?\/\/[\w-]+(?:\.[\w-]+)+)?\/?)?(.*)/, function(all, domain, base){
-        publicPath = domain || '';
-        basePath = base;
+        publicPath = domain || ''; //域名，如http://www.xxx.com
+        basePath = base;   //目录
     });
 
     return {
@@ -18,9 +19,9 @@ function getPublicPathAndBase (outPublicPath) {
     }
 }
 
-// 显示进度
-const progress = (percentage, message, ...args) => {
-    console.info(percentage, message, ...args);
+//显示进度 todo
+const progress = ( message, ...args) => {
+    console.info( message, ...args);
 };
 
 module.exports = {
