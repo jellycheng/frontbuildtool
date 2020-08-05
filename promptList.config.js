@@ -1,3 +1,4 @@
+//inquirer 包的配置：一组通用的交互式命令行用户界面包
 const promptList = {
     frameConf:[{//第1次提示配置
         type: 'rawlist',
