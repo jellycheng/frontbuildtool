@@ -3,7 +3,7 @@ const promptList = {
     frameConf:[{//第1次提示配置
         type: 'rawlist',
         message: '请选择框架',
-        name: 'frame',
+        name: 'frame', //设置变量名
         choices: [
             "vue",
             "react",

@@ -1,4 +1,4 @@
 export default function printMe() {
-    console.log('I get called from print.js!222');
-    console.log('updating......22....')
-  }
+    console.log('print.js文件printMe方法被调用');
+    
+}

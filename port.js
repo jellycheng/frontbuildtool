@@ -8,7 +8,7 @@ module.exports = new Promise((resolve, reject) => {
   //基础端口，即从哪个端口开始扫描
   portfinder.basePort = process.env.PORT || confEnvPort || 8090;
   portfinder.getPort((err, port) => {
-    if (err) {
+    if(err) {
       reject(err);
     } else {
       resolve(process.env.PORT = port);
@@ -24,5 +24,5 @@ var abc = require('../port');
 abc.then(function(port){
     console.log("可用端口", port)
 })
- */
+*/
 

@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-//命令帮助：node bin/index.js -h
+//命令帮助：node ./bin/index.js -h
 //执行构建示例：NODE_ENV=production ST=1 ./bin/index.js -b cjs
-const pa = process.argv;
-const argv = pa[pa.length - 1];
-const { spawn, fork } = require('child_process');
-const path = require('path');
+//const pa = process.argv;
 const webpack = require('webpack');
 const chalk = require('chalk');
 const CWD = process.cwd();
@@ -14,21 +11,21 @@ const po = program.opts();
 const ora = require('ora');
 // global.smp = null;
 console.log(`当前工作目录是: ${CWD}`);
-//process.exit(1)
+
 //获取--analyzer选项值
 global.analyzer = program.analyzer;
 
-if (program.devConf) {//启动本地web服务，用于mock数据
+if (program.devConf) {//启动本地web服务,用于开发,node ./bin/index.js -d cjs
   global.confFile = po.devConf;
   require('../server');
+  return;
 }
 
-if (program.buildConf) {//构建工程，./bin/index.js -b cjs
+if (program.buildConf) {//构建工程，node ./bin/index.js -b cjs
   global.confFile = po.buildConf;
   const configs = require('../webpack.prod');
   const spinner = ora('building ...');
-  spinner.start();
-  //process.exit(1)
+  spinner.start();//开启loading
   const compiler = webpack(configs, (err, stats) => {
     spinner.stop();
     if (err) {
@@ -41,7 +38,6 @@ if (program.buildConf) {//构建工程，./bin/index.js -b cjs
     }
 
     const info = stats.toJson();
-
     if (stats.hasErrors()) {
       console.error(info.errors);
       process.exit(1);
@@ -62,12 +58,12 @@ if (program.buildConf) {//构建工程，./bin/index.js -b cjs
     );
     console.log(chalk.cyan('Build complete.\n'));
   });
-
+  return;
 }
 
-//创建工程： ./bin/index.js -p 工程目录名
+//创建工程：node ./bin/index.js -p 工程目录名
 if (program.projectName) {
   global.projectName = program.projectName || 'myproject';
-  //console.log(global.projectName)
   require('../repo');
+  return;
 }

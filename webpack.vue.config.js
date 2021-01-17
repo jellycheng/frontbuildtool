@@ -1,3 +1,4 @@
+//vue项目时的webpack配置
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');

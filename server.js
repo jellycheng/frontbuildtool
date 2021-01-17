@@ -1,3 +1,4 @@
+//启动本地web服务,用于开发
 const webpack = require('webpack');
 const path = require('path');
 const webpackDevServer = require('webpack-dev-server');
@@ -53,12 +54,8 @@ const options = {
       }),
 };
 
-// Tell express to use the webpack-dev-middleware and use the webpack.config.js
-// configuration file as a base.
-
 webpackDevServer.addDevServerEntrypoints(config, options);
 const server = new webpackDevServer(compiler, options);
-// Serve the files on port 3000.
 require('./port').then((port) => {
   let p = conf.port || port;
   server.listen(p, '', function(res) {

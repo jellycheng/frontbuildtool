@@ -33,4 +33,19 @@ module.exports = {
             }
         ])
     ]
+    ,devServer: {
+        proxy: {
+            '/daojia': {
+                target: 'http://dev-api-cjs.nfangbian.com',
+                changeOrigin: true
+            },  
+            '/api': {
+                target: 'http://dev-manage.nfangbian.com/',
+                changeOrigin: true
+                // pathRewrite: { '^/api': 'http://dev-manage-cjs.nfangbian.com/api/' }
+            }
+        }
+      },
+    nomocker: true    
+
 };

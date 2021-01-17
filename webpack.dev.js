@@ -1,3 +1,4 @@
+//开发时用的webpack配置
 const merge = require('webpack-merge');
 const vueConfigs = require('./webpack.vue.config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
