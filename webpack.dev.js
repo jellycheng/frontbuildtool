@@ -14,6 +14,7 @@ const path = require('path');
 const helper = require('./helper');
 const conf = require('./bin/conf');
 const CWD = process.cwd();
+//获取命令行最后一个参数
 const domainsArgv = process.argv[process.argv.length - 1];
 const domains = conf.domains;
 global.nomocker = conf.nomocker;
@@ -22,12 +23,12 @@ delete conf.nomocker;
 delete conf.domains;
 delete conf.port;
 
-// 处理多个环境请求域名不同时
+// 处理多个环境请求域名不同时, st:cjs
 if (/:/.test(domainsArgv)) {
   let domainsArgvArr = domainsArgv.split(':');
+  //设置全局域名
   global.domain = domains[domainsArgvArr[domainsArgvArr.length - 1]];
-  //   let [, domain] = domainsArgv.split(':');
-  //   global.domain = domains[domain];
+  
 }
 
 module.exports = merge(

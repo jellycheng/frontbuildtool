@@ -67,4 +67,20 @@ frontendbuildtool -b production -a //-a表示开启分析
 
 ```
 
+# frontendbuildtool内部配置加载顺序
+```
+本地开发时webpack加载顺序：
+	frontendbuildtool/server.js
+		|-frontendbuildtool/webpack.dev.js
+			|- frontendbuildtool/webpack.vue.config.js
+				|- frontendbuildtool/webpack.common.js
+      |- 项目的conf/env/代号.js + 项目的conf/conf.js
+      
+打包时webpack加载顺序：
+	frontendbuildtool/webpack.prod.js
+		|- frontendbuildtool/webpack.vue.config
+			|- frontendbuildtool/webpack.common.js
+      |- 项目的conf/env/代号.js + 项目的conf/conf.js
 
+
+```

@@ -16,7 +16,7 @@ const proxy = {
 
 if (global.domain) {
   for (let i in conf.devServer.proxy) {
-    conf.devServer.proxy[i].target = global.domain[i];
+    conf.devServer.proxy[i].target = global.domain[i];//代理域名也用全局域名
     proxy[i] = global.domain[i];
   }
 }

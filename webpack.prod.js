@@ -1,6 +1,6 @@
 const merge = require('webpack-merge');
 const path = require('path');
-const common = require('./webpack.common.js');
+//const common = require('./webpack.common.js');
 const vueConfigs = require('./webpack.vue.config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');

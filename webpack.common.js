@@ -66,7 +66,8 @@ let plugins = [
     ],
   }),
 ];
-if (global.analyzer) {
+
+if (global.analyzer) {//开启分析，则加载webpack分析插件
   console.log(BundleAnalyzerPlugin, 'webpack-bundle-analyzer');
   plugins.push(new BundleAnalyzerPlugin());
 }
